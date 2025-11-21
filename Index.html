@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallon’s V1 Store</title>
+    <!-- Optional: Add a CSS framework like Tailwind or Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4 text-center">
+        <h1 class="text-3xl font-bold">Gallon’s Super Store V1</h1>
+    </header>
+
+    <!-- Product Section -->
+    <main class="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="product-container">
+        <!-- Products will be injected here dynamically -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        © 2025 Gallon’s Store. All rights reserved.
+    </footer>
+
+    <!-- JS Script -->
+    <script>
+        // Sample product data (we'll replace with API later)
+        const products = [
+            {
+                id: 1,
+                name: "Sample Product 1",
+                price: "$29.99",
+                image: "https://via.placeholder.com/300x300?text=Product+1",
+                link: "#"
+            },
+            {
+                id: 2,
+                name: "Sample Product 2",
+                price: "$49.99",
+                image: "https://via.placeholder.com/300x300?text=Product+2",
+                link: "#"
+            },
+            {
+                id: 3,
+                name: "Sample Product 3",
+                price: "$19.99",
+                image: "https://via.placeholder.com/300x300?text=Product+3",
+                link: "#"
+            }
+        ];
+
+        const container = document.getElementById('product-container');
+
+        products.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.className = "bg-white p-4 rounded shadow hover:shadow-lg transition";
+            productCard.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded">
+                <h2 class="text-xl font-semibold mt-2">${product.name}</h2>
+                <p class="text-blue-600 font-bold mt-1">${product.price}</p>
+                <a href="${product.link}" target="_blank" class="block mt-3 bg-blue-600 text-white text-center py-2 rounded hover:bg-blue-700">Buy Now</a>
+            `;
+            container.appendChild(productCard);
+        });
+    </script>
+</body>
+</html>
